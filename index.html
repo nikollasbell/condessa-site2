@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8">
+  <title>Banda Condessa - Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/4a1b65f8f5.js" crossorigin="anonymous"></script>
+</head><link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+<body>
+  <canvas id="notasCanvas"></canvas><audio id="somClique" src="sons/clique.mp3"></audio>
+<audio id="somHover" src="sons/hover.mp3"></audio>
+<audio id="somSucesso" src="sons/sucesso.mp3"></audio><audio id="somFlash" src="sons/flash.mp3"></audio>
+<audio id="somBumbo" src="sons/bumbo.mp3"></audio>
+<audio id="somPrato" src="sons/prato.mp3"></audio>
+<audio id="somExplosao" src="sons/explosao.mp3"></audio>
+<audio id="somEstrobo" src="sons/estrobo.mp3"></audio>
+<!-- Popup de detalhes do evento -->
+<div id="popupDetalhes" class="popup">
+  <div class="popup-content">
+    <span class="fechar" onclick="fecharPopup()">&times;</span>
+    <img id="popupImagem" src="" alt="Imagem do Evento">
+    <h3 id="popupTitulo"></h3>
+    <p id="popupLocal"></p>
+    <p id="popupDescricao"></p>
+    <a id="popupLink" href="#" target="_blank">🎟️ Comprar Ingressos</a>
+  </div>
+</div>
+
+
+
+  <header  id="tituloHeader">
+  <div class="overlay">
+    <div id="logo-container">
+      <img id="logoBanda" src="logo.png" alt="Logo da Banda Condessa">
+    </div>
+    <h1><i class="fa-solid fa-crown"></i> CONDESSA <i class="fa-solid fa-crown"></i></h1>
+    <p><i class="fa-solid fa-microphone-lines"></i> Realeza das Quadras & do Palco <i class="fa-solid fa-volleyball"></i></p>
+    <button id="adminBtn"><i class="fa-solid fa-user-gear"></i> Entrar como Administrador</button>
+
+    <!-- Área só para admin -->
+    <div class="admin-only">
+      <input type="url" id="bgURL" placeholder="Link da imagem de fundo">
+      <button onclick="alterarBackground()">Alterar Fundo</button>
+    </div>
+  </div>
+</header>
+
+</header>
+
+    <div id="logo-container">
+      <img id="logoBanda" src="logo.png" alt="Logo Banda Condessa">
+    </div>
+      <input type="url" id="logoURL" placeholder="Link da logo">
+      <button onclick="alterarLogo()">Alterar Logo</button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#integrantes">Integrantes</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+    <section id="sobre">
+      <h2><i class="fa-solid fa-star"></i> Sobre a Banda</h2>
+      <p id="sobreText"></p>
+      <div class="admin-only">
+        <textarea id="sobreInput"></textarea>
+        <button onclick="salvarSobre()">Salvar</button>
+      </div>
+    </section>
+
+    <section id="integrantes">
+      <h2><i class="fa-solid fa-guitar"></i> Integrantes</h2>
+      <div id="integrantesGrid"></div>
+      <div class="admin-only">
+        <input type="text" id="nomeIntegrante" placeholder="Nome">
+        <textarea id="bioIntegrante" placeholder="Biografia"></textarea>
+        <button onclick="adicionarIntegrante()">Adicionar</button>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <h2><i class="fa-solid fa-calendar-days"></i> Agenda de Shows</h2>
+      <ul id="agendaList"></ul>
+      <div class="admin-only">
+        <input type="date" id="showDate">
+        <input type="text" id="showLocal" placeholder="Local">
+        <button onclick="adicionarShow()">Adicionar Show</button>
+      </div>
+    </section>
+    <section id="galeria">
+      <h2><i class="fa-solid fa-camera"></i> Galeria</h2>
+      <div id="galeriaGrid"></div>
+      <div class="admin-only">
+        <input type="url" id="imgURL" placeholder="Link da Imagem">
+        <button onclick="adicionarImagem()">Adicionar Imagem</button>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2><i class="fa-solid fa-envelope"></i> Contato</h2>
+      <p>Email: condessa@banda.com</p>
+    </section>
+  </main>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h3>Login Admin</h3>
+      <input type="password" id="adminPassword" placeholder="Senha">
+      <button onclick="loginAdmin()">Entrar</button>
+      <button onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Banda Condessa | Feito com 🎶 e energia jovem</p>
+  </footer>
+</body>
+</html>
+<section id="agenda">
+  <h2><i class="fa-solid fa-calendar-days"></i> Agenda de Shows</h2>
+  <div id="agendaGrid"></div>
+
+  <!-- Área secreta só para administrador -->
+  <div class="admin-only">
+    <input type="text" id="agendaData" placeholder="Data do show (ex: 12/09/2025)">
+    <input type="text" id="agendaHora" placeholder="Horário (ex: 20h)">
+    <input type="text" id="agendaLocal" placeholder="Local do show">
+    <input type="url" id="agendaImagem" placeholder="Imagem do evento (opcional)">
+    <button onclick="adicionarAgenda()">Adicionar Show</button>
+  </div>
+</section>
